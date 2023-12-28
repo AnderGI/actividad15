@@ -1,0 +1,77 @@
+### API 
+
+### MÉTODOS GET
+### GET Todos los empleados
+GET http://localhost:8080/empleados
+
+### GET usuarios/{id} : Retornará el usuario con el id indicado
+### Paolo Accorti id PMA42628M
+GET http://localhost:8080/empleados/PMA42628M
+
+### ID QUE NO EXISTE
+GET http://localhost:8080/empleados/aaaaaaaa
+
+### Pedro Alfonso
+GET http://localhost:8080/empleados/PSA89086M
+
+### GET usuarios/{id}/tareas : Retornará todas las tareas del usuario descendente
+### Id de Paolo Accorti
+GET http://localhost:8080/empleados/PMA42628M/tareas
+### Pedro Alfonso
+GET http://localhost:8080/empleados/PSA89086M/tareas
+
+
+### GET usuarios/{id}/pendientes : Retornará todas 
+### las tareas pendientes del usuario ordenadas en descendente
+GET http://localhost:8080/empleados/PMA42628M/pendientes
+
+### GET usuarios/{usuario}: Retornará el usuario si existe
+### PROBLEMAS CON EL {USUARIO}
+
+### GET usuarios/{idUsuario}/tareas/{idTarea} : Retornará la tarea del usuario
+GET http://localhost:8080/empleados/PMA42628M/tareas/6
+
+
+
+### MÉTODOS POST
+
+### POST usuarios/{id}/tareas : Añadirá la tarea recibida en el cuerpo al usuario indicado
+POST http://localhost:8080/empleados/PMA42628M/tareas
+Content-Type: application/json
+
+{
+    "titulo": "NUEVA",
+    "realizada": 0,
+    "descripcion": "Tarea nueva para Paolo Accorti",
+    "fecha": "2023-12-26"
+}
+
+### 
+POST http://localhost:8080/empleados/PSA89086M/tareas
+Content-Type: application/json
+
+{
+    "titulo": "Reunion Start-Up",
+    "realizada": 0,
+    "descripcion": "Reunión con inversores",
+    "fecha": "2024-01-25"
+}
+
+
+### METODO PUT 
+### PUT usuarios/{idUsuario}/tareas/{idTarea} : Modificará la tarea recibida
+PUT http://localhost:8080/empleados/PSA89086M/tareas/12
+Content-Type: application/json
+
+{
+     "titulo": "Reunion Start-Up",
+    "realizada": 0,
+    "descripcion": "Reunión con inversores IMPORTANTÍSIMOS",
+    "fecha": "2024-01-25"
+}
+
+
+### Metodo DELETE
+### DELETE usuarios/{idUsuario}/tareas/{idTarea} : Eliminará la tarea del usuario
+### Paolo Accorti PMA42628M id 9 
+DELETE http://localhost:8080/empleados/PMA42628M/tareas/9
